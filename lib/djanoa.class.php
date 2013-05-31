@@ -55,6 +55,11 @@ class Djanoa
     return "http://djanoa.com/sms/" . $this->account_code . "/out";
   }
 
+  /**
+   * récupération de la réponse
+   *
+   * @return DjanoaResponse
+   */
   public function getResponse() {
     return $this->response;
   }
