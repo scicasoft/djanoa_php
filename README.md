@@ -31,7 +31,7 @@ Si vous voulez allez plus loin vous pouvez récupérer la réponse et voir s'il 
 
 Le code suivant permet d'envoyer un SMS et, s'il y'a une erreur, affiche le code de l'erreur, le message d'erreur ainsi que l'adresse IP de l'envoyeur.
 ```php
-$reponse = $sms->send_sms('+221772134794', 'juste pour tester mon client PHP');
+$reponse = $sms->send_sms('221777777777', 'juste pour tester mon client PHP');
 
 if $reponse->sent() {
   echo "le sms est envoyé";
