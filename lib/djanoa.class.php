@@ -5,19 +5,20 @@ include 'received_message.class.php';
 
 /**
 * Client PHP de Djanoa (http://www.djanoa.com)
-* 
+*
+* @package djanoa
 * @author scicasoft
 * @version 1.0.0
 */
 class Djanoa
 {
   protected $from, $account_code, $application_pass, $response;
-  
+
   /**
-   * 
-   * @param string $from 
-   * @param string $account_code 
-   * @param string $application_pass 
+   *
+   * @param string $from
+   * @param string $account_code
+   * @param string $application_pass
    * @return Djanoa
    */
   function __construct($from, $account_code, $application_pass)
@@ -26,19 +27,20 @@ class Djanoa
     $this->account_code     = $account_code;
     $this->application_pass = $application_pass;
 
-    return $self;
+    return $this;
   }
 
   /**
    * Send a new sms
-   * @param string $phone 
-   * @param string $message 
+   * @param string $phone
+   * @param string $message
    * @return DjanoaResponse
    */
   public function send_sms($phone, $message)
   {
-    $message = urlencode(message);
-    $res = file_get_contents($this->sender_base_url() . "/?from=" . $this->from . "&to=" . $phone . "&text=" . $message . "&pass=" . $this->application_pass);
+    $message        = urlencode($message);
+    $req            = $this->sender_base_url() . "/?from=" . $this->from . "&to=" . $phone . "&text=" . $message . "&pass=" . $this->application_pass;
+    $res            = file_get_contents($req);
     $this->response = new DjanoaResponse($res);
 
     return $this->response;
@@ -52,10 +54,8 @@ class Djanoa
   {
     return "http://djanoa.com/sms/" . $this->account_code . "/out";
   }
+
+  public function getResponse() {
+    return $this->response;
+  }
 }
-
-$sms = new Djanoa('22110', 'DAd3d0ec9cef0d768aa79160', '916cecab074e1c16e85b6783');
-
-$sms->send_sms('772134794', 'hi');
-
-print_r($sms);

@@ -1,7 +1,7 @@
 <?php
 /**
  * Les erreurs Djanoa
- * 
+ *
  * @package djanoa
  * @author scicasoft
  * @version 1.0.0
@@ -9,13 +9,13 @@
 class DjanoaError
 {
   protected $code, $message, $ip;
-  
+
   /**
    * Instantiates a new djanoa error object
-   * 
-   * @param string $code 
-   * @param string $message 
-   * @param string $ip 
+   *
+   * @param string $code
+   * @param string $message
+   * @param string $ip
    * @return DjanoError
    */
   function __construct($code, $message, $ip)
@@ -24,12 +24,12 @@ class DjanoaError
     $this->message = $message;
     $this->ip      = $ip;
 
-    return $self;
+    return $this;
   }
 
   /**
    * recupération du code d'erreur
-   * 
+   *
    * @return string
    */
   public function getCode() {
@@ -38,7 +38,7 @@ class DjanoaError
 
   /**
    * recupération du message d'erreur
-   * 
+   *
    * @return string
    */
   public function getMessage() {
@@ -47,7 +47,7 @@ class DjanoaError
 
   /**
    * recupération de l'adresse ip du client
-   * 
+   *
    * @return string
    */
   public function getIp() {
