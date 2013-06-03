@@ -1,0 +1,20 @@
+{
+  "name": "scicasoft/djanoa",
+  "description": "Client PHP pour la plateforme Djanoa.",
+  "keywords": ["client", "djanoa"],
+  "type": "library",
+  "homepage": "https://github.com/scicasoft/djanoa_php",
+  "authors": [
+    {
+      "name": "Scicasoft",
+      "email": "scicasoft@gmail.com",
+      "homepage": "http://scicasoft.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0"
+  }
+  "autoload": {
+    "classmap": ["src"]
+  }
+}

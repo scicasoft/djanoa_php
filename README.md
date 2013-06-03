@@ -13,7 +13,7 @@ Il faut d'abord créer un compte sur [le site de djanoa](http://www.djanoa.com).
 
 Ensuite vous faites les configurations
 ```php
-include 'djanoa_php/lib/djanoa.class.php';
+require 'djanoa_php/src/djanoa.class.php';
 
 $client = new Djanoa(VOTRE_NUMERO_COURT, CODE_DE_VOTRE_COMPTE, MOT_DE_PASSE);
 ```
