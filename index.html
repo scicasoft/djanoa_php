@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Djanoa php : Client PHP pour la plateforme Djanoa." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Djanoa php</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/scicasoft/djanoa_php">View on GitHub</a>
+
+          <h1 id="project_title">Djanoa php</h1>
+          <h2 id="project_tagline">Client PHP pour la plateforme Djanoa.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/scicasoft/djanoa_php/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/scicasoft/djanoa_php/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="djanoa" class="anchor" href="#djanoa"><span class="octicon octicon-link"></span></a>Djanoa</h1>
+
+<p>Client PHP pour la plateforme <a href="http://www.djanoa.com">Djanoa</a>.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Pour l'installer il faut télécharger le projet et le décompresser dans votre projet.</p>
+
+<h2>
+<a name="utilisation" class="anchor" href="#utilisation"><span class="octicon octicon-link"></span></a>Utilisation</h2>
+
+<p>Il faut d'abord créer un compte sur <a href="http://www.djanoa.com">le site de djanoa</a>.</p>
+
+<p>Ensuite vous faites les configurations</p>
+
+<div class="highlight"><pre><span class="k">require</span> <span class="s1">'djanoa_php/src/djanoa.class.php'</span><span class="p">;</span>
+
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Djanoa</span><span class="p">(</span><span class="nx">VOTRE_NUMERO_COURT</span><span class="p">,</span> <span class="nx">CODE_DE_VOTRE_COMPTE</span><span class="p">,</span> <span class="nx">MOT_DE_PASSE</span><span class="p">);</span>
+</pre></div>
+
+<p>ensuite pour envoyer un SMS il suffit de faire :</p>
+
+<div class="highlight"><pre><span class="nv">$client</span><span class="o">-&gt;</span><span class="na">send_sms</span><span class="p">(</span><span class="s1">'221777777777'</span><span class="p">,</span> <span class="s1">'juste pour tester mon client PHP'</span><span class="p">);</span>
+</pre></div>
+
+<h2>
+<a name="gestion-des-erreurs" class="anchor" href="#gestion-des-erreurs"><span class="octicon octicon-link"></span></a>Gestion des erreurs</h2>
+
+<p>Si vous voulez allez plus loin vous pouvez récupérer la réponse et voir s'il n'y a pas d'erreur.</p>
+
+<p>Le code suivant permet d'envoyer un SMS et, s'il y'a une erreur, affiche le code de l'erreur, le message d'erreur ainsi que l'adresse IP de l'envoyeur.</p>
+
+<div class="highlight"><pre><span class="nv">$reponse</span> <span class="o">=</span> <span class="nv">$sms</span><span class="o">-&gt;</span><span class="na">send_sms</span><span class="p">(</span><span class="s1">'221777777777'</span><span class="p">,</span> <span class="s1">'juste pour tester mon client PHP'</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="nv">$reponse</span><span class="o">-&gt;</span><span class="na">sent</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">"le sms est envoyé"</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$reponse</span><span class="o">-&gt;</span><span class="na">getError</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getCode</span><span class="p">();</span>
+  <span class="k">echo</span> <span class="nv">$reponse</span><span class="o">-&gt;</span><span class="na">getError</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+  <span class="k">echo</span> <span class="nv">$reponse</span><span class="o">-&gt;</span><span class="na">getError</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getIp</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2>
+<a name="copyright" class="anchor" href="#copyright"><span class="octicon octicon-link"></span></a>Copyright</h2>
+
+<p>Copyright 2013 Cheikh Sidya CAMARA. Voir la <a href="https://github.com/scicasoft/djanoa_php/blob/master/LICENSE.md">LICENSE</a> pour plus de détails.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Djanoa php maintained by <a href="https://github.com/scicasoft">scicasoft</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
